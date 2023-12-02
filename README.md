@@ -6,7 +6,12 @@ This project covers a fictitious dataset that covers HR data of a travel agency,
 Note that this project is restricted to the analysis side of things, so no predictive stuff here.
 
 In order to reach our goal, we want to answer the following questions using our data:
+**Dashboard, general statistics**:
+- Number of employees
 - Calculate the overall attrition rate?
+- Average monthly income by Age Group
+- Attrition Rate by Age Group
+- Count of employees by Years of Service
 **Employee Information**:
 - Which ages, salary groups, years of service, education, marital status groups contribute the most to the attrition rate?
 - Is the commute distance a factor?
