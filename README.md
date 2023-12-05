@@ -12,19 +12,16 @@ In order to reach our goal, we want to answer the following questions using our 
 - Number of employees
 - Calculate the overall attrition rate?
 - Average monthly income by Age Group and compare it against the global average
-- Attrition Rate by Age Group
 - Count of employees by Years of Service
 
 **Employee Information**:
 - Is the commute distance a factor?
-- Do senior employees have a higher attrition rate as well?
 - Are people who were in a lot of companies at higher risk of attrition?
 
 **Performance and compensation**:
   - Do hikes in salary affect attrition?
   - Which departments suffer from the most attrition?
   - What about people who do overtime vs those who don't?
-  - Performance level? 
 
 **Management and career growth**:
   - How long has been the employee in their current position without getting promoted?
@@ -76,7 +73,7 @@ We'll use CSV Lint to do the following:
   ```
   It's not as dynamic as I'd like, but it's readable, and reliable, which are the most important aspects in code.
 
-- We check the rest of the data using Excel because we have 21 columns.
+- We check the rest of the data using Excel because we have 21 columns. No need for any joins, but it's still quite annoying, heh.
 
 
 ### General statistics, for our cards:
@@ -113,12 +110,43 @@ We'll use CSV Lint to do the following:
 
   At 35.77%, the 18-25 suffers from massive attrition, but it's most likely due to the low number of employees. The 26-35 slice requires more attention however, as it has a rate of 19.14%, at 6 times the number of employees in the 18-25 slice.
 
-  - **Attrition rate by Years in the Company**: See next section.
+  - **Attrition rate by Years in the Company:** See visualization section.
 
 ### Employee Information:
-  - **Commute Distance**: We want a scatterplot here so there's no need to query.
-  - **Seniority**: Simply calculate the attrition rate by job level
+  - **Commute Distance:** We want a scatter plot here, so there's no need to query.
+  - **Number of Previous Companies:** We just count the number of employees and aggregate it by the current criterion. We'll reuse this code a few times.
+    ````
+    SELECT
+	    numcompaniesworked,
+	    COUNT(*) as num_emp,
+      COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
+    FROM gd_hr_data
+    GROUP BY 1
+    ORDER BY 1;
 
+  It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
+
+### Performance and compensation:
+ - **Salary Hikes**: See visualization section.
+
+ - **Departments**: For the technique, see the code right above. <br>
+Sales and R&D departments require the most attention, at 13.84% of 961 employees and 20.63% of 446 employees, respectively.
+ 
+ - **Overtime**: For the technique, see the code right above. <br>
+ 30.53% of the employees that do overtime have terminated, which is quite alarming.
+
+### Management and Career Growth
+ - **Number of Previous Companies**: For the technique, see the code right above. <br>
+ It seems the turnover rate is highest for people whose first company is Green Destinations, at 18.93% of 581 employees
+ - **Years in Position since last promotion:** See visualization section.
+ 
+ - **Years under current manager:** For the technique, see the code right above.
+Unsurprisingly, it's highest in the first few years, especially the first at 32.32% of 263 employees, but later down the line the attrition rate becomes a zero.
+- **Work-Life Balance**: See visualization section.
+Seems even across the board, doesn't seem to be a factor, plus more employees are satisfied about the work-life balance than those that aren't, always a great thing.
+# Visualization:
+
+# Insights:
 
 
 
