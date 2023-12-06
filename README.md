@@ -9,16 +9,18 @@ Note that this project is restricted to the analysis side of things, so no predi
 In order to reach our goal, we want to answer the following questions using our data:
 
 **General statistics**:
-- Number of employees
+- Number of employees.
 - Calculate the overall attrition rate?
-- Average monthly income by Age Group and compare it against the global average
-- Count of employees by Years of Service
+- Employee age distribution.
+- Average Job Satisfaction.
+- Count of employees by Years of Service.
 
 **Employee Information**:
 - Is the commute distance a factor?
 - Are people who were in a lot of companies at higher risk of attrition?
 
 **Performance and compensation**:
+  - Average monthly rate by Age Group and compare it against the global average
   - Do hikes in salary affect attrition?
   - Which departments suffer from the most attrition?
   - What about people who do overtime vs those who don't?
@@ -35,7 +37,7 @@ The dataset can be acquired [here](https://databudd.com/s/greendestination.csv)
 - Excel for preliminary examination.
 - Notepad++ and its plugin CSV Lint for preprocessing.
 - MySQL Workbench for cleaning and querying.
-- Power BI for visualization.
+- Power BI and Python for visualization.
 - PowerPoint for reporting.
 
 # Preliminary examination
@@ -84,6 +86,25 @@ We'll use CSV Lint to do the following:
 		  COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(CASE WHEN Attrition = "No" THEN 1 ELSE NULL END) AS 'Attrition Rate'
     FROM gd_hr_data
   The overall attrition rate is **19.22%**, it's a hefty percentage, it's good that management decided to get on this problem.
+  - **Average job satisfaction level:** Simple AVG function.
+  - **Average Monthly Rate:** Ditto.
+  - **Attrition rate by Years in the Company:** See visualization section.
+
+### Employee Information:
+  - **Commute Distance:** We want a scatter plot here, so there's no need to query.
+  - **Number of Previous Companies:** We just count the number of employees and aggregate it by the current criterion. We'll reuse this code a few times.
+    ````
+    SELECT
+	    numcompaniesworked,
+	    COUNT(*) as num_emp,
+      COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
+    FROM gd_hr_data
+    GROUP BY 1
+    ORDER BY 1;
+
+  It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
+
+### Performance and compensation:
   - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. 
   <br>
 
@@ -109,24 +130,6 @@ We'll use CSV Lint to do the following:
   The conclusion is that older employees don't see big pay raises in comparison to young professionals. To see if this affects attrition, we'll calculate attrition rate by age group as well.
 
   At 35.77%, the 18-25 suffers from massive attrition, but it's most likely due to the low number of employees. The 26-35 slice requires more attention however, as it has a rate of 19.14%, at 6 times the number of employees in the 18-25 slice.
-
-  - **Attrition rate by Years in the Company:** See visualization section.
-
-### Employee Information:
-  - **Commute Distance:** We want a scatter plot here, so there's no need to query.
-  - **Number of Previous Companies:** We just count the number of employees and aggregate it by the current criterion. We'll reuse this code a few times.
-    ````
-    SELECT
-	    numcompaniesworked,
-	    COUNT(*) as num_emp,
-      COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
-    FROM gd_hr_data
-    GROUP BY 1
-    ORDER BY 1;
-
-  It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
-
-### Performance and compensation:
  - **Salary Hikes**: See visualization section.
 
  - **Departments**: For the technique, see the code right above. <br>
@@ -145,8 +148,13 @@ Unsurprisingly, it's highest in the first few years, especially the first at 32.
 - **Work-Life Balance**: See visualization section.
 Seems even across the board, doesn't seem to be a factor, plus more employees are satisfied about the work-life balance than those that aren't, always a great thing.
 # Visualization:
+After an hour of fiddling around with the ODBC connector and adding a password to my local MySQL server and forgetting it five seconds later, I finally figured out how to create Power BI to MySQL Workbench. I will use views to import the data instead of the unbelievable pain in the neck that is exporting to CSV file! **a whole new wooooorld** I blame Colt for not teaching me this.
 
-# Insights:
+  - **Number of Employees:** A card visual will do!
+  - **Overall Attrition Rate:** Ditto.
+  - **Age Distribution of Employees:** The first of many histograms in our dashboard, we'll use the power of pandas, MatPlotLib, and Seaborn.
+  *
+  # Insights:
 
 
 
