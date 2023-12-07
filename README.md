@@ -11,12 +11,14 @@ In order to reach our goal, we want to answer the following questions using our 
 **General statistics**:
 - Number of employees.
 - Calculate the overall attrition rate?
-- Employee age distribution.
 - Average Job Satisfaction.
-- Count of employees by Years of Service.
+- Distribution of Employees by age.
+- Distribution of employees by Years of Service.
+- Distribution of employees by Commute Distance.
+- Distribution of employees by Monthly Rate (trimmed).
 
 **Employee Information**:
-- Is the commute distance a factor?
+- Is the commute distance a factor? (attrition vs commute distance)
 - Are people who were in a lot of companies at higher risk of attrition?
 
 **Performance and compensation**:
@@ -37,7 +39,7 @@ The dataset can be acquired [here](https://databudd.com/s/greendestination.csv)
 - Excel for preliminary examination.
 - Notepad++ and its plugin CSV Lint for preprocessing.
 - MySQL Workbench for cleaning and querying.
-- Power BI and Python for visualization.
+- Power BI for visualization.
 - PowerPoint for reporting.
 
 # Preliminary examination
@@ -88,6 +90,7 @@ We'll use CSV Lint to do the following:
   The overall attrition rate is **19.22%**, it's a hefty percentage, it's good that management decided to get on this problem.
   - **Average job satisfaction level:** Simple AVG function.
   - **Average Monthly Rate:** Ditto.
+  - ** Employee Age Distribution:** The count of employees grouped by age group.
   - **Attrition rate by Years in the Company:** See visualization section.
 
 ### Employee Information:
@@ -105,7 +108,8 @@ We'll use CSV Lint to do the following:
   It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
 
 ### Performance and compensation:
-  - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. 
+  - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. <br>
+  This turned out to be completely unnecessary because both Tableau and Power BI allow you to bin easily with a GUI to boot, but hey you learn more everyday, right?
   <br>
 
     ````
@@ -150,10 +154,14 @@ Seems even across the board, doesn't seem to be a factor, plus more employees ar
 # Visualization:
 After an hour of fiddling around with the ODBC connector and adding a password to my local MySQL server and forgetting it five seconds later, I finally figured out how to create Power BI to MySQL Workbench. I will use views to import the data instead of the unbelievable pain in the neck that is exporting to CSV file! **a whole new wooooorld** I blame Colt for not teaching me this.
 
+I also started freaking out as to whether I should call it a histogram or a bar chart. I eventually decided to stick to the simple rule of thumb of "bars for categorical data, and histograms for quantitative data. But isn't a bin *technically* a category? I can imagine some scientists in the 1800s getting into a fist fight over this.
+
   - **Number of Employees:** A card visual will do!
   - **Overall Attrition Rate:** Ditto.
-  - **Age Distribution of Employees:** The first of many histograms in our dashboard, we'll use the power of pandas, MatPlotLib, and Seaborn.
-  *
+  - **Age Distribution of Employees:** The first of many histograms in our dashboard. The age column has already been binned in SQL, so it's a matter of creating a bar chart, sorting the X-axis by the bins, and reducing the spacing between the bars, creating a histogram!
+  - **Tenure Distribution of Employees:** The YearsInCompany column will be binned in Power BI, but the process is largely the same as previously.
+  - **Distribution of employees by Monthly Rate (trimmed)**:.
+
   # Insights:
 
 

@@ -46,6 +46,8 @@ ORDER BY 1 ASC;
 
 /* General Statistics -----------------------------------------------------------------------------------------------------------------------------------------------*/
 -- Number of employees: ----------------------------------------------------------------------------------
+
+CREATE VIEW num_employee as
 SELECT 
 	COUNT(*) AS num_employees
 FROM 
@@ -53,6 +55,7 @@ FROM
 
 -- Overall attrition rate: -------------------------------------------------------------------------------
 -- We use a technique called Case Pivoting------------------------------
+CREATE VIEW attrition_rate AS
 SELECT 
 		COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
 FROM 
@@ -74,6 +77,57 @@ SET age_group = (CASE WHEN gd_hr_data.age BETWEEN 18 AND 25 THEN '18-25'
         WHEN gd_hr_data.age BETWEEN 56 AND 59 THEN '56-59'
         ELSE '60+'
 	END);
+-- This column wasn't need because PBI can bin oopa
+
+-- Average Job Satisfaction -------------------------------------------------------------------------------
+CREATE VIEW job_satis AS
+SELECT
+	AVG(JobSatisfaction) AS avg_job_satis
+FROM gd_hr_data;
+
+-- Average Monthly Rate-------------------------------------------------------------------------------------
+CREATE VIEW avg_rate AS
+SELECT 
+	AVG(monthlyrate) as avg_monthly_rate
+FROM gd_hr_data;
+
+-- Employee age distribution -----------------------------------------------------------------------------
+CREATE VIEW age_dist AS
+SELECT
+	age_group,
+	COUNT(*) AS num_emp
+FROM gd_hr_data
+GROUP BY 1
+ORDER BY 1;
+
+-- Employee tenure distribution -------------------------------------------------------------------------
+CREATE VIEW tenure_dist AS
+SELECT
+	YearsAtCompany,
+	COUNT(*) AS num_emp
+FROM gd_hr_data
+GROUP BY 1
+ORDER BY 1;
+
+-- Employee Commute Distance distribution -----------------------------------------------------------------
+CREATE VIEW commute_distance_dist AS
+SELECT
+	DistanceFromHome,
+	COUNT(*) AS num_emp
+FROM gd_hr_data
+GROUP BY 1
+ORDER BY 1;
+
+-- Employee Monthly Rate distribution --------------------------------------------------------------------
+CREATE VIEW monthly_rate_dist AS
+SELECT
+	monthlyrate,
+	COUNT(*) AS num_emp
+FROM gd_hr_data
+WHERE monthlyrate BETWEEN 5000 AND 20000
+GROUP BY 1
+ORDER BY 1;
+
 
 -- Now to calculate the counts----------------
 SELECT 
@@ -82,11 +136,12 @@ SELECT
     ROUND(AVG(monthlyrate),0) AS avg_rate
 FROM
     gd_hr_data
-WHERE MonthlyRate > 5000 AND monthlyrate < 17000
+WHERE MonthlyRate > 5000 AND monthlyrate < 20000
 GROUP BY 1
 ORDER BY 1;
--- Seems pretty even across the board, likely because 
+
 -- Attrition rate by Age Group ---------------------------------------------
+CREATE VIEW attrition_age_dist AS
 SELECT 
 		age_group,
         COUNT(*) as num_emp,
