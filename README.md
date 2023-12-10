@@ -90,25 +90,8 @@ We'll use CSV Lint to do the following:
   The overall attrition rate is **19.22%**, it's a hefty percentage, it's good that management decided to get on this problem.
   - **Average job satisfaction level:** Simple AVG function.
   - **Average Monthly Rate:** Ditto.
-  - ** Employee Age Distribution:** The count of employees grouped by age group.
-  - **Attrition rate by Years in the Company:** See visualization section.
-
-### Employee Information:
-  - **Commute Distance:** We want a scatter plot here, so there's no need to query.
-  - **Number of Previous Companies:** We just count the number of employees and aggregate it by the current criterion. We'll reuse this code a few times.
-    ````
-    SELECT
-	    numcompaniesworked,
-	    COUNT(*) as num_emp,
-      COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
-    FROM gd_hr_data
-    GROUP BY 1
-    ORDER BY 1;
-
-  It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
-
-### Performance and compensation:
-  - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. <br>
+  - **Employee Age Distribution:** The count of employees grouped by age group.
+    - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. <br>
   This turned out to be completely unnecessary because both Tableau and Power BI allow you to bin easily with a GUI to boot, but hey you learn more everyday, right?
   <br>
 
@@ -134,6 +117,25 @@ We'll use CSV Lint to do the following:
   The conclusion is that older employees don't see big pay raises in comparison to young professionals. To see if this affects attrition, we'll calculate attrition rate by age group as well.
 
   At 35.77%, the 18-25 suffers from massive attrition, but it's most likely due to the low number of employees. The 26-35 slice requires more attention however, as it has a rate of 19.14%, at 6 times the number of employees in the 18-25 slice.
+  
+### Employee Information:
+  - **Commute Distance:** We want a scatter plot here, so there's no need to query.
+  - **Number of Previous Companies:** We just count the number of employees and aggregate it by the current criterion. We'll reuse this code a few times.
+    ````
+    SELECT
+	    numcompaniesworked,
+	    COUNT(*) as num_emp,
+      COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
+    FROM gd_hr_data
+    GROUP BY 1
+    ORDER BY 1;
+
+  It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
+
+### Performance and compensation:
+  - **Attrition rate by Years in the Company:** See visualization section.
+
+
  - **Salary Hikes**: See visualization section.
 
  - **Departments**: For the technique, see the code right above. <br>
