@@ -158,11 +158,16 @@ After an hour of fiddling around with the ODBC connector and adding a password t
 
 I also started freaking out as to whether I should call it a histogram or a bar chart. I eventually decided to stick to the simple rule of thumb of "bars for categorical data, and histograms for quantitative data. But isn't a bin *technically* a category? I can imagine some scientists in the 1800s getting into a fist fight over this.
 
+The hardest part as usual was the color scheme. Always a pain!
+
   - **Number of Employees:** A card visual will do!
   - **Overall Attrition Rate:** Ditto.
-  - **Age Distribution of Employees:** The first of many histograms in our dashboard. The age column has already been binned in SQL, so it's a matter of creating a bar chart, sorting the X-axis by the bins, and reducing the spacing between the bars, creating a histogram!
+  - **Age Distribution of Employees:** The first of many histograms in our dashboard. The age column has already been binned in SQL, so it's a matter of creating a bar chart, sorting the X-axis by the bins, and reducing the spacing between the bars, creating a histogram! To this, and most of the other distributions, I also added a line chart with the attrition rate.
   - **Tenure Distribution of Employees:** The YearsInCompany column will be binned in Power BI, but the process is largely the same as previously.
-  - **Distribution of employees by Monthly Rate (trimmed)**:.
+  - **Distribution of employees by Monthly Rate (trimmed)**: Ditto.
+  - **Commute Distance**: Ditto, but I also added a scatter plot in the second page, which shows a positive correlation between commute distance and attrition rate. More on that in the next section.
+  - **Departments**: Just a simple pie chart, the size of the slices is based on the employee count. I also replaced Human Resources and Research & Development with HR and R&D, respectively, to save on valuable space.
+
 
   # Insights:
 

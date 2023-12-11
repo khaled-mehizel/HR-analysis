@@ -103,14 +103,14 @@ GROUP BY 1
 ORDER BY 1;
 
 -- Attrition vs Monthly Rate --------------------------------------------------------------------
-CREATE VIEW monthly_rate_att AS
+CREATE VIEW monthly_rate_att_all AS
 SELECT
 	monthlyrate,
 	COUNT(*) AS num_emp,
 	COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
 
 FROM gd_hr_data
-WHERE monthlyrate BETWEEN 5000 AND 20000
+-- WHERE monthlyrate BETWEEN 5000 AND 20000
 GROUP BY 1
 ORDER BY 1;
 
