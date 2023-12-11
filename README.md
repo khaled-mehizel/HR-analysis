@@ -12,6 +12,7 @@ In order to reach our goal, we want to answer the following questions using our 
 - Number of employees.
 - Calculate the overall attrition rate?
 - Average Job Satisfaction.
+- Average Tenure in the company.
 - Distribution of Employees by age.
 - Distribution of employees by Years of Service.
 - Distribution of employees by Commute Distance.
@@ -22,7 +23,7 @@ In order to reach our goal, we want to answer the following questions using our 
 - Are people who were in a lot of companies at higher risk of attrition?
 
 **Performance and compensation**:
-  - Average monthly rate by Age Group and compare it against the global average
+  - Average monthly rate by Age Group.
   - Do hikes in salary affect attrition?
   - Which departments suffer from the most attrition?
   - What about people who do overtime vs those who don't?
@@ -89,7 +90,7 @@ We'll use CSV Lint to do the following:
     FROM gd_hr_data
   The overall attrition rate is **19.22%**, it's a hefty percentage, it's good that management decided to get on this problem.
   - **Average job satisfaction level:** Simple AVG function.
-  - **Average Monthly Rate:** Ditto.
+  - **Average Tenure Length:** Used a simple **AVERAGE()** DAX function here.
   - **Employee Age Distribution:** The count of employees grouped by age group.
     - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. <br>
   This turned out to be completely unnecessary because both Tableau and Power BI allow you to bin easily with a GUI to boot, but hey you learn more everyday, right?
@@ -133,7 +134,7 @@ We'll use CSV Lint to do the following:
   It seems the rate is quite high for employees who only worked in one company before, 18.81% of 521.
 
 ### Performance and compensation:
-  - **Attrition rate by Years in the Company:** See visualization section.
+  - **Attrition rate by Tenure:** See visualization section.
 
 
  - **Salary Hikes**: See visualization section.
@@ -158,19 +159,25 @@ After an hour of fiddling around with the ODBC connector and adding a password t
 
 I also started freaking out as to whether I should call it a histogram or a bar chart. I eventually decided to stick to the simple rule of thumb of "bars for categorical data, and histograms for quantitative data. But isn't a bin *technically* a category? I can imagine some scientists in the 1800s getting into a fist fight over this.
 
-The hardest part as usual was the color scheme. Always a pain!
+The hardest part as usual was the color scheme. Always a pain! Lord forgive me for I used the Disco Elysium palette again.
+
 
   - **Number of Employees:** A card visual will do!
   - **Overall Attrition Rate:** Ditto.
   - **Age Distribution of Employees:** The first of many histograms in our dashboard. The age column has already been binned in SQL, so it's a matter of creating a bar chart, sorting the X-axis by the bins, and reducing the spacing between the bars, creating a histogram! To this, and most of the other distributions, I also added a line chart with the attrition rate.
   - **Tenure Distribution of Employees:** The YearsInCompany column will be binned in Power BI, but the process is largely the same as previously.
   - **Distribution of employees by Monthly Rate (trimmed)**: Ditto.
-  - **Commute Distance**: Ditto, but I also added a scatter plot in the second page, which shows a positive correlation between commute distance and attrition rate. More on that in the next section.
+  - **Commute Distance**: Ditto, but I also added a scatter plot, which shows a positive correlation between commute distance and attrition rate. More on that in the next section.
   - **Departments**: Just a simple pie chart, the size of the slices is based on the employee count. I also replaced Human Resources and Research & Development with HR and R&D, respectively, to save on valuable space.
-
-
+  - **Overtime**: A simple stacked bar chart did the trick.
+  - **Work-Life Balance**: Another bar and line chart. If it's not broken, don't fix it!
   # Insights:
-
+  - The overall attrition rate is **16.12%**, out of the 1470 employees in the survey, around 237 employees are terminated.
+  - 
+  - The 26-35 age group seems to suffer from the most attrition at **19.1%** of the group having been terminated.
+  - A massive amount of employees leaves the company within the first five years of their tenure at **22.6%** overall.
+  - The employee distribution by salary seems uniform. The attrition fluctuates within 5% of the highest and lowest values. It seems that Monthly Salary isn't a big factor in the attrition rate.
+  - 
 
 
 
