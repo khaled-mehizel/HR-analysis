@@ -1,6 +1,9 @@
 # HR-analysis
  An analytical report of fictitious HR data meant to shed light on turnover rates, the causes, patterns, and how to improve said rate.
 
+ Access the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiODljMTM1MjAtZTFjZi00N2Y3LWE1YjItNjg0MTgwNjJjYmNkIiwidCI6IjIzN2NkZmEwLWVmMWUtNDAxNS05ODRlLWI1NTM0YzhhNTZjYSJ9)
+ Access the report [here]() or in the files.
+
 # Goal
 This project covers a fictitious dataset that covers HR data of a travel agency. The agency is struggling with high employee attrition rate. 
 The goal of this study is to analyze the company's employee attrition rate, identify the causes, and suggest solutions to improve the situation. All using our data!
