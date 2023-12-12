@@ -102,6 +102,26 @@ FROM gd_hr_data
 GROUP BY 1
 ORDER BY 1;
 
+-- Attrition vs Salary Hikes-------------------------------------------------------------------------------
+CREATE VIEW salary_hikes AS
+SELECT
+	PercentSalaryHike,
+	COUNT(*) AS num_emp,
+	COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
+
+FROM gd_hr_data
+GROUP BY 1
+ORDER BY 1;
+-- Attrition vs Business travel --------------------------------------------------------------------------
+CREATE VIEW travel AS
+SELECT
+	BusinessTravel,
+	COUNT(*) AS num_emp,
+	COUNT(CASE WHEN Attrition = "Yes" THEN 1 ELSE NULL END)/COUNT(EmployeeNumber) AS atr_rate
+
+FROM gd_hr_data
+GROUP BY 1
+ORDER BY 1;
 -- Attrition vs Monthly Rate --------------------------------------------------------------------
 CREATE VIEW monthly_rate_att_all AS
 SELECT

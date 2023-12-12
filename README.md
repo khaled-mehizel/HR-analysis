@@ -15,22 +15,20 @@ In order to reach our goal, we want to answer the following questions using our 
 - Average Tenure in the company.
 - Distribution of Employees by age.
 - Distribution of employees by Years of Service.
-- Distribution of employees by Commute Distance.
-- Distribution of employees by Monthly Rate (trimmed).
+- Comparing departments in terms of attrition and population.
+- Distribution of employees by Monthly Rate.
 
 **Employee Information**:
+- Distribution of employees by Commute Distance.
 - Is the commute distance a factor? (attrition vs commute distance)
-- Are people who were in a lot of companies at higher risk of attrition?
 
 **Performance and compensation**:
-  - Average monthly rate by Age Group.
   - Do hikes in salary affect attrition?
-  - Which departments suffer from the most attrition?
   - What about people who do overtime vs those who don't?
 
+
 **Management and career growth**:
-  - How long has been the employee in their current position without getting promoted?
-  - Do people who stay under the same manager for longer resign more often?
+  - How long do employees stay in the company?
   - Is current work-life balance a factor?
 
 
@@ -92,8 +90,8 @@ We'll use CSV Lint to do the following:
   - **Average job satisfaction level:** Simple AVG function.
   - **Average Tenure Length:** Used a simple **AVERAGE()** DAX function here.
   - **Employee Age Distribution:** The count of employees grouped by age group.
-    - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. <br>
-  This turned out to be completely unnecessary because both Tableau and Power BI allow you to bin easily with a GUI to boot, but hey you learn more everyday, right?
+    - **Monthly Rate by Age group:** For this we'll use a **CASE** statement to divide the ages into groups. I decided to add this as a column to our table because we'll reuse it often. It's a two-step process, we add the column using **ALTER TABLE** then use **UPDATE** with the case values. <br>
+  This turned out to be completely unnecessary because both Tableau and Power BI allow you to bin easily with a GUI to boot, but hey you learn more every day, right?
   <br>
 
     ````
@@ -113,7 +111,7 @@ We'll use CSV Lint to do the following:
     - This is a data entry error, but it's quite common, there are 171 employees who get paid less than 5000.
   So, I tried a trimmed mean by setting lower and upper limits in my query, I set a condition that the monthly rate must be between 5000 and 10000, and noticed the same results mostly.
 
-  I'm sticking with the trimmed mean approach, it just doesn't make sense to me that a sales representative with 1 year of experience is 23K+ while a Senior Sales Executive with 20 years of experience is paid 1/10 of that, because these non-sensical values are always extremely big. So, since it's not possible to estimate the real salary of these employees, I decided to limit the monthly rate between 5000 and 17000 to keep a big number of records. The results seem the same whether I expand or narrow the window. 
+  I'm sticking with the trimmed mean approach, it just doesn't make sense to me that a sales representative with 1 year of experience is 23K+ while a Senior Sales Executive with 20 years of experience is paid 1/10 of that, because these nonsensical values are always massive. So, since it's not possible to estimate the real salary of these employees, I decided to limit the monthly rate between 5000 and 17000 to keep a big number of records. The results seem the same whether I expand or narrow the window. 
   
   The conclusion is that older employees don't see big pay raises in comparison to young professionals. To see if this affects attrition, we'll calculate attrition rate by age group as well.
 
@@ -155,7 +153,7 @@ Unsurprisingly, it's highest in the first few years, especially the first at 32.
 - **Work-Life Balance**: See visualization section.
 Seems even across the board, doesn't seem to be a factor, plus more employees are satisfied about the work-life balance than those that aren't, always a great thing.
 # Visualization:
-After an hour of fiddling around with the ODBC connector and adding a password to my local MySQL server and forgetting it five seconds later, I finally figured out how to create Power BI to MySQL Workbench. I will use views to import the data instead of the unbelievable pain in the neck that is exporting to CSV file! **a whole new wooooorld** I blame Colt for not teaching me this.
+After an hour of fiddling around with the ODBC connector and adding a password to my local MySQL server and forgetting it five seconds later, I finally figured out how to connect Power BI to MySQL Workbench. I will use views to import the data instead of the unbelievable pain in the neck that is exporting to CSV file! **a whole new wooooorld** I blame Colt for not teaching me this.
 
 I also started freaking out as to whether I should call it a histogram or a bar chart. I eventually decided to stick to the simple rule of thumb of "bars for categorical data, and histograms for quantitative data. But isn't a bin *technically* a category? I can imagine some scientists in the 1800s getting into a fist fight over this.
 
@@ -173,14 +171,44 @@ The hardest part as usual was the color scheme. Always a pain! Lord forgive me f
   - **Work-Life Balance**: Another bar and line chart. If it's not broken, don't fix it!
   # Insights:
   - The overall attrition rate is **16.12%**, out of the 1470 employees in the survey, around 237 employees are terminated.
-  - 
+  - Average Job Satisfaction is 2.73 out of 4, not bad but could be better.
+  - Average tenure length is 7 years.
   - The 26-35 age group seems to suffer from the most attrition at **19.1%** of the group having been terminated.
   - A massive amount of employees leaves the company within the first five years of their tenure at **22.6%** overall.
   - The employee distribution by salary seems uniform. The attrition fluctuates within 5% of the highest and lowest values. It seems that Monthly Salary isn't a big factor in the attrition rate.
-  - 
+  - Overtime does not seem to be a factor in the attrition rate, as the number of terminated employees that did overtime isn't that much bigger than those that didn't. **(127 vs 110)** 
+  - There's a direct correlation between commute distance and employee attrition.
+  - A majority of the employees scored the work-life balance in the company as 3, but the attrition rate doesn't vary too much between those who scored 2 and 4 as well, remaining within **5%** of each other. It is quite high, however, with employees who only scored 1.
+  - Increases in salary have a direct effect on attrition, the bigger the pay increase, the lower the attrition. Apart from 20% increase on, but that's likely due to the small sample size.
+  - Having to travel frequently seems to increase attrition, as employees who travel less or don't travel at all suffer from lower attrition rates.
 
+  ## Recommendations:
+  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
+  - People aged 26-35 are often new parents and require better benefits and care than people in other age brackets, **it might be worth looking at paternity benefits like leave and bonuses.**
+  - People leaving during the first five years of their tenure might be up to a few reasons:
+    - Poor onboarding, **I would look into improving the onboarding process and giving mentorship to new hires.**
+    - Lack of growth opportunities, as it may be taking them too long to get promoted, or their improvement seems vague. **I would offer new hires a clear career path and possibly a roadmap.**
+    - Entry level salary may be below expectations, so employees would just use the company to escape entry level positions, and move on to *GREENER* Destinations (not sorry). **A re-evaluation of entry level salary and benefits may be the best way to go forward here.**
+  - Commute Distance is quite an important factor in the company's attrition, I see a few ways to remedy it:
+    - **Maybe we can consider offering remote positions to people who live far, or at least offer more flexible working conditions.**
+    - **The company also may be interested in helping employees with public transportation fees.**
+    - **A drastic measure would be to offer relocation packages to employees.**
+  - A similar solution to the work-life balance issue is to offer more flexible working conditions.
+  - Travel requirements also seem to be a big factor in the attrition rate, it's higher in employees that travel more often:
+    - **Improving travel packages for employees that travel often, like reimbursements and allowances.**
+    - **Minimizing travel requirements as much possible, by studying the reasons for travel and whether it's absolutely necessary.**
+    - **Allowing employees to have ample downtime between trips to manage fatigue and travel stress.** 
+  
+# Report
+I'll make a report in PowerPoint, showcasing findings, insights, and recommendations. It will not be pretty, but I'll just mooch templates off my coworkers when I finally get a job!
 
+The report can be viewed [here]()
 
+# Recap
+With this analysis, we have helped Green Destinations do the following:
+- Gain a bigger understanding on the attrition phenomenon in the company and how bad the situation is.
+- Gathered insights and identified the biggest factors in the increase of attrition rate.
+- Gave actionable recommendations to mitigate and potentially eradicate the phenomenon, and thus improve the company and contribute to its growth massively. I love being a data analyst.
 
 
 
