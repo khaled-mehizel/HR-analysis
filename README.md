@@ -2,7 +2,7 @@
  An analytical report of fictitious HR data meant to shed light on turnover rates, the causes, patterns, and how to improve said rate.
 
  Access the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiODljMTM1MjAtZTFjZi00N2Y3LWE1YjItNjg0MTgwNjJjYmNkIiwidCI6IjIzN2NkZmEwLWVmMWUtNDAxNS05ODRlLWI1NTM0YzhhNTZjYSJ9)
- Access the report [here]() or in the files.
+ Access the report [here](https://github.com/khaled-mehizel/HR-analysis/blob/main/GD%20HR%20report.pdf) or in the files.
 
 # Goal
 This project covers a fictitious dataset that covers HR data of a travel agency. The agency is struggling with high employee attrition rate. 
@@ -209,7 +209,7 @@ The hardest part as usual was the color scheme. Always a pain! Lord forgive me f
 # Report
 I'll make a report in PowerPoint, showcasing findings, insights, and recommendations. It will not be pretty, but I'll just mooch templates off my coworkers when I finally get a job!
 
-The report can be viewed [here]()
+The report can be viewed [here](https://github.com/khaled-mehizel/HR-analysis/blob/main/GD%20HR%20report.pdf)
 
 # Recap
 With this analysis, we have helped Green Destinations do the following:
