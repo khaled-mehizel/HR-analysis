@@ -187,10 +187,14 @@ The hardest part as usual was the color scheme. Always a pain! Lord forgive me f
 
   ## Recommendations:
   - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
+  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
+  - **Improving communication between management and employees and taking complaints into consideration.**
+  - **Conducting exit interviews for the employees that leave the company, and asking for their feedback.**
+
   - People aged 26-35 are often new parents and require better benefits and care than people in other age brackets, **it might be worth looking at paternity benefits like leave and bonuses.**
   - People leaving during the first five years of their tenure might be up to a few reasons:
-    - Poor onboarding, **I would look into improving the onboarding process and giving mentorship to new hires.**
-    - Lack of growth opportunities, as it may be taking them too long to get promoted, or their improvement seems vague. **I would offer new hires a clear career path and possibly a roadmap.**
+    - Poor onboarding: **improving the onboarding process and mentorship may be in need of an overhaul.**
+    - Lack of growth opportunities: As it may be taking the employees too long to get promoted, or their improvement trajectory seems vague. **I would offer new hires a clear career path and possibly a roadmap.**
     - Entry level salary may be below expectations, so employees would just use the company to escape entry level positions, and move on to *GREENER* Destinations (not sorry). **A re-evaluation of entry level salary and benefits may be the best way to go forward here.**
   - Commute Distance is quite an important factor in the company's attrition, I see a few ways to remedy it:
     - **Maybe we can consider offering remote positions to people who live far, or at least offer more flexible working conditions.**

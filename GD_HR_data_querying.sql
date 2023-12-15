@@ -71,7 +71,7 @@ ADD COLUMN age_group VARCHAR(5);
 
 UPDATE gd_hr_data -- populating the column
 SET age_group = (CASE WHEN gd_hr_data.age BETWEEN 18 AND 25 THEN '18-25'
-        WHEN gd_hr_data.age BETWEEN 26 AND 35 THEN '26-31'
+        WHEN gd_hr_data.age BETWEEN 26 AND 35 THEN '26-35'
         WHEN gd_hr_data.age BETWEEN 36 AND 45 THEN '36-45'
         WHEN gd_hr_data.age BETWEEN 46 AND 55 THEN '46-55'
         WHEN gd_hr_data.age BETWEEN 56 AND 59 THEN '56-59'
