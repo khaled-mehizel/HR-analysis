@@ -187,7 +187,6 @@ The hardest part as usual was the color scheme. Always a pain! Lord forgive me f
 
   ## Recommendations:
   - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
-  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
   - **Improving communication between management and employees and taking complaints into consideration.**
   - **Conducting exit interviews for the employees that leave the company, and asking for their feedback.**
 
