@@ -35,6 +35,40 @@ In order to reach our goal, we want to answer the following questions using our 
   - Is current work-life balance a factor?
 
 
+ # Insights:
+  - The overall attrition rate is **16.12%**, out of the 1470 employees in the survey, around 237 employees are terminated.
+  - Average Job Satisfaction is 2.73 out of 4.
+  - Average tenure length is 7 years.
+  - The 26-35 age group seems to suffer from the most attrition at **19.1%** of the group having been terminated.
+  - A massive amount of employees leaves the company within the first five years of their tenure at **22.6%** overall.
+  - The employee distribution by salary seems uniform. The attrition fluctuates within 5% of the highest and lowest values. It seems that Monthly Salary isn't a big factor in the attrition rate.
+  - Overtime does not seem to be a factor in the attrition rate, as the number of terminated employees that did overtime isn't that much bigger than those that didn't. **(127 vs 110)** 
+  - There's a direct correlation between commute distance and employee attrition.
+  - A majority of the employees scored the work-life balance in the company as 3, but the attrition rate doesn't vary too much between those who scored 2 and 4 as well, remaining within **5%** of each other. It is quite high, however, with employees who only scored 1.
+  - Increases in salary have a direct effect on attrition, the bigger the pay increase, the lower the attrition. Apart from 20% increase on, but that's likely due to the small sample size.
+  - Having to travel frequently seems to increase attrition, as employees who travel less or don't travel at all suffer from lower attrition rates.
+
+  ## Recommendations:
+  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
+  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
+  - **Improving communication between management and employees and taking complaints into consideration.**
+  - **Conducting exit interviews for the employees that leave the company, and asking for their feedback.**
+
+  - People aged 26-35 are often new parents and require better benefits and care than people in other age brackets, **it might be worth looking at paternity benefits like leave and bonuses.**
+  - People leaving during the first five years of their tenure might be up to a few reasons:
+    - Poor onboarding: **improving the onboarding process and mentorship may be in need of an overhaul.**
+    - Lack of growth opportunities: As it may be taking the employees too long to get promoted, or their improvement trajectory seems vague. **I would offer new hires a clear career path and possibly a roadmap.**
+    - Entry level salary may be below expectations, so employees would just use the company to escape entry level positions, and move on to *GREENER* Destinations (not sorry). **A re-evaluation of entry level salary and benefits may be the best way to go forward here.**
+  - Commute Distance is quite an important factor in the company's attrition, I see a few ways to remedy it:
+    - **Maybe we can consider offering remote positions to people who live far, or at least offer more flexible working conditions.**
+    - **The company also may be interested in helping employees with public transportation fees.**
+    - **A drastic measure would be to offer relocation packages to employees.**
+  - A similar solution to the work-life balance issue is to offer more flexible working conditions.
+  - Travel requirements also seem to be a big factor in the attrition rate, it's higher in employees that travel more often:
+    - **Improving travel packages for employees that travel often, like reimbursements and allowances.**
+    - **Minimizing travel requirements as much possible, by studying the reasons for travel and whether it's absolutely necessary.**
+    - **Allowing employees to have ample downtime between trips to manage fatigue and travel stress.** 
+
 # Resources and tools used
 The dataset can be acquired [here](https://databudd.com/s/greendestination.csv)
 
@@ -172,39 +206,7 @@ The hardest part as usual was the color scheme. Always a pain! Lord forgive me f
   - **Departments**: Just a simple pie chart, the size of the slices is based on the employee count. I also replaced Human Resources and Research & Development with HR and R&D, respectively, to save on valuable space.
   - **Overtime**: A simple stacked bar chart did the trick.
   - **Work-Life Balance**: Another bar and line chart. If it's not broken, don't fix it!
-  # Insights:
-  - The overall attrition rate is **16.12%**, out of the 1470 employees in the survey, around 237 employees are terminated.
-  - Average Job Satisfaction is 2.73 out of 4, not bad but could be better.
-  - Average tenure length is 7 years.
-  - The 26-35 age group seems to suffer from the most attrition at **19.1%** of the group having been terminated.
-  - A massive amount of employees leaves the company within the first five years of their tenure at **22.6%** overall.
-  - The employee distribution by salary seems uniform. The attrition fluctuates within 5% of the highest and lowest values. It seems that Monthly Salary isn't a big factor in the attrition rate.
-  - Overtime does not seem to be a factor in the attrition rate, as the number of terminated employees that did overtime isn't that much bigger than those that didn't. **(127 vs 110)** 
-  - There's a direct correlation between commute distance and employee attrition.
-  - A majority of the employees scored the work-life balance in the company as 3, but the attrition rate doesn't vary too much between those who scored 2 and 4 as well, remaining within **5%** of each other. It is quite high, however, with employees who only scored 1.
-  - Increases in salary have a direct effect on attrition, the bigger the pay increase, the lower the attrition. Apart from 20% increase on, but that's likely due to the small sample size.
-  - Having to travel frequently seems to increase attrition, as employees who travel less or don't travel at all suffer from lower attrition rates.
-
-  ## Recommendations:
-  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
-  - **Assuring the employees that the company is dedicated to improving the situation in Green Destinations, and showing willingness to address any complaints.**
-  - **Improving communication between management and employees and taking complaints into consideration.**
-  - **Conducting exit interviews for the employees that leave the company, and asking for their feedback.**
-
-  - People aged 26-35 are often new parents and require better benefits and care than people in other age brackets, **it might be worth looking at paternity benefits like leave and bonuses.**
-  - People leaving during the first five years of their tenure might be up to a few reasons:
-    - Poor onboarding: **improving the onboarding process and mentorship may be in need of an overhaul.**
-    - Lack of growth opportunities: As it may be taking the employees too long to get promoted, or their improvement trajectory seems vague. **I would offer new hires a clear career path and possibly a roadmap.**
-    - Entry level salary may be below expectations, so employees would just use the company to escape entry level positions, and move on to *GREENER* Destinations (not sorry). **A re-evaluation of entry level salary and benefits may be the best way to go forward here.**
-  - Commute Distance is quite an important factor in the company's attrition, I see a few ways to remedy it:
-    - **Maybe we can consider offering remote positions to people who live far, or at least offer more flexible working conditions.**
-    - **The company also may be interested in helping employees with public transportation fees.**
-    - **A drastic measure would be to offer relocation packages to employees.**
-  - A similar solution to the work-life balance issue is to offer more flexible working conditions.
-  - Travel requirements also seem to be a big factor in the attrition rate, it's higher in employees that travel more often:
-    - **Improving travel packages for employees that travel often, like reimbursements and allowances.**
-    - **Minimizing travel requirements as much possible, by studying the reasons for travel and whether it's absolutely necessary.**
-    - **Allowing employees to have ample downtime between trips to manage fatigue and travel stress.** 
+ 
   
 # Report
 I'll make a report in PowerPoint, showcasing findings, insights, and recommendations. It will not be pretty, but I'll just mooch templates off my coworkers when I finally get a job!
