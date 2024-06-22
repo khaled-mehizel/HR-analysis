@@ -117,7 +117,6 @@ The dataset can be acquired [here](https://databudd.com/s/greendestination.csv)
 - PowerPoint for reporting.
 
 # Preliminary examination
-The dataset is composed of 
 
 We'll use CSV Lint to do the following:
 - Set the data type for each column, down-casting them into small types to save improve performance by reducing overhead storage, and CSV Lint bases this limit on the longest string in the column, so there's no risk of truncating any data.
