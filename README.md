@@ -1,7 +1,7 @@
 # HR-analysis
  An analytical report of fictitious HR data meant to shed light on turnover rates, the causes, patterns, and how to improve said rate.
 
- Access the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiODljMTM1MjAtZTFjZi00N2Y3LWE1YjItNjg0MTgwNjJjYmNkIiwidCI6IjIzN2NkZmEwLWVmMWUtNDAxNS05ODRlLWI1NTM0YzhhNTZjYSJ9)
+ Access the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiODljMTM1MjAtZTFjZi00N2Y3LWE1YjItNjg0MTgwNjJjYmNkIiwidCI6IjIzN2NkZmEwLWVmMWUtNDAxNS05ODRlLWI1NTM0YzhhNTZjYSJ9). <br>
  Access the report [here](https://github.com/khaled-mehizel/HR-analysis/blob/main/GD%20HR%20report.pdf) or in the files.
 
 # Goal
