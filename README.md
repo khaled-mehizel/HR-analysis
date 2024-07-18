@@ -1,7 +1,7 @@
 # HR-analysis
  An analytical report of fictitious HR data meant to shed light on turnover rates, the causes, patterns, and how to improve said rate.
 
- Access the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiODljMTM1MjAtZTFjZi00N2Y3LWE1YjItNjg0MTgwNjJjYmNkIiwidCI6IjIzN2NkZmEwLWVmMWUtNDAxNS05ODRlLWI1NTM0YzhhNTZjYSJ9)
+ Access the dashboard [here](https://app.powerbi.com/view?r=eyJrIjoiODljMTM1MjAtZTFjZi00N2Y3LWE1YjItNjg0MTgwNjJjYmNkIiwidCI6IjIzN2NkZmEwLWVmMWUtNDAxNS05ODRlLWI1NTM0YzhhNTZjYSJ9). <br>
  Access the report [here](https://github.com/khaled-mehizel/HR-analysis/blob/main/GD%20HR%20report.pdf) or in the files.
 
 # Goal
@@ -117,7 +117,6 @@ The dataset can be acquired [here](https://databudd.com/s/greendestination.csv)
 - PowerPoint for reporting.
 
 # Preliminary examination
-The dataset is composed of 
 
 We'll use CSV Lint to do the following:
 - Set the data type for each column, down-casting them into small types to save improve performance by reducing overhead storage, and CSV Lint bases this limit on the longest string in the column, so there's no risk of truncating any data.
