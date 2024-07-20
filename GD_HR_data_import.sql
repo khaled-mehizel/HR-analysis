@@ -18,7 +18,7 @@ CREATE TABLE GD_HR_Data (
 	`MonthlyRate` integer,
 	`NumCompaniesWorked` integer,
 	`OverTime` varchar(3),
-	`PercentSalaryHike` integer,
+	`PercentSalaryHike` decimal(2,2),
 	`PerformanceRating` integer,
 	`RelationshipSatisfaction` integer,
 	`TotalWorkingYears` integer,
