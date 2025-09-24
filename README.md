@@ -22,7 +22,7 @@ In order to reach our goal, we want to answer the following questions using our 
   - Work Life Balance.
   - Overtime.
   - Commute Distance.
-  - Travel Requiremnts.
+  - Travel Requirements.
 - Overall attrition rate
 - Average Job Satisfaction.
 - Median Tenure Length in the company. I chose median because this is the only category out of the chosen set that can be affected by outliers.
